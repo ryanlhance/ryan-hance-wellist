@@ -244,21 +244,28 @@ a { color: var(--w-deep); }
 .peek-empty-text { margin: 0 auto; font-size: 0.95rem; max-width: 32ch; }
 
 /* populated */
-.peek-eyebrow {
-  margin: 0 0 6px;
+/* the quoted JD requirement — sits at the top of the peek */
+.peek-heading {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--w-ink);
+  margin: 0 0 16px;
+  padding-right: 30px;
+}
+.peek-heading::before { content: "\201C"; color: var(--w-sky); }
+.peek-heading::after  { content: "\201D"; color: var(--w-sky); }
+
+/* "This is backed by" — labels the evidence beneath the quote */
+.peek-label {
+  margin: 0 0 12px;
+  padding-top: 15px;
+  border-top: 1px solid var(--hairline);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
   color: var(--w-berry);
-}
-.peek-heading {
-  font-size: 1.18rem;
-  line-height: 1.35;
-  font-weight: 600;
-  color: var(--w-ink);
-  margin: 0 0 18px;
-  padding-right: 30px;
 }
 
 .peek-cards { display: flex; flex-direction: column; gap: 12px; }
