@@ -1,0 +1,6 @@
+# Internal source files — NOT for the public repo (contain match/gap strategy notes)
+wellist_brainmap_data.json
+wellist_brainmap_spec.md
+
+# OS cruft
+.DS_Store
