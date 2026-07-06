@@ -4,3 +4,4 @@ wellist_brainmap_spec.md
 
 # OS cruft
 .DS_Store
+.claude/
