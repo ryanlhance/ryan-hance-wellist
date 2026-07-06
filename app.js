@@ -130,10 +130,14 @@
   }
 
   function buildPhraseButton(phrase) {
-    var btn = document.createElement("button");
-    btn.type = "button";
+    // A <span role="button"> (not a real <button>) so the phrase wraps
+    // across lines like normal prose — buttons are atomic boxes and
+    // break the text flow on narrow screens.
+    var btn = document.createElement("span");
     btn.className = "phrase";
     btn.id = "phrase-" + phrase.id;
+    btn.setAttribute("role", "button");
+    btn.tabIndex = 0;
     btn.setAttribute("data-phrase-id", phrase.id);
     btn.setAttribute("aria-haspopup", "true");
     btn.setAttribute("aria-expanded", "false");
@@ -141,6 +145,12 @@
     btn.textContent = phrase.text;
 
     btn.addEventListener("click", function () { openPeek(phrase, btn, true); });
+    btn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        openPeek(phrase, btn, true);
+      }
+    });
     return btn;
   }
 
